@@ -1,0 +1,12 @@
+.container-search-box{
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    top: 10rem;
+}
+
+.input-search-movie{
+    border-radius: 5px;
+    padding: 10px;
+    width: 50%;
+}
