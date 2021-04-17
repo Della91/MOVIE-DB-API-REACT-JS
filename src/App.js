@@ -2,10 +2,9 @@ import React, { useContext, useState } from 'react';
 import './App.css';
 import SearchBox from './components/header/SearchBox';
 import MyProviderApi from './components/context/MyProviderApi';
+import ListMoviesSearch from './components/main/ListMoviesSearch';
 
 function App() {
-  
-var apiKey = process.env.REACT_APP_API;
 
 /*   function handleSubmit(e){
     e.preventDefault();
@@ -27,6 +26,9 @@ var apiKey = process.env.REACT_APP_API;
     <MyProviderApi>
       <div className="App">
         <SearchBox />
+        <div className="main-container">
+          <ListMoviesSearch/>
+        </div>
       </div>
     </MyProviderApi>
   );

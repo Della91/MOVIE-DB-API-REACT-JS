@@ -1,22 +1,24 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import '../../assets/css/header/SearchBox.css'
 import { MyContext } from '../context/Context'
 
 
-function SearchBox(props) {
+function SearchBox() {
     
-    const myContext = useContext(MyContext); 
-    const [text,setText] = useState('');
-    console.log(myContext);
+    const { handleSubmit,text,setText } = useContext(MyContext); 
+  /*   console.log(handleSubmit);
+    console.log(text);
+    console.log(setText); */
 
     function handleChange(e){
         e.preventDefault();
         setText(e.target.value)
     }
+
     
     return(
             <div className="container-search-box">
-                <form action="">
+                <form action="" onSubmit={handleSubmit}>
                     <input 
                     className="input-search-movie"
                     placeholder="search movie" 
