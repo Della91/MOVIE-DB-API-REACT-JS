@@ -2,15 +2,15 @@ import React, { useContext } from 'react'
 import { MyContext } from '../context/Context';
 import '../../assets/css/main/ListMoviesSearch.css'
 
-function ListMoviesSearch(props) {
+function ListMoviesSearch() {
 
-    const { movies } = useContext(MyContext); 
-    console.log(movies)
+    const { searchMovies,text } = useContext(MyContext); 
     return (
-        <div >  
-            {movies.map((listMovies,id) => {
-                return <div key={id}>
-                   <h1 key={id}> {listMovies.original_title} </h1>
+        <div className="list-movie-container">  
+            {searchMovies.length > 0 && searchMovies.map((listMovies) => {
+                return <div key={listMovies.id} className="search-movies">
+                    <img src={listMovies.poster_path} alt="" />
+                   <h1> {listMovies.original_title} </h1>
                    <p> {listMovies.vote_average} </p>
                 </div>
             })}

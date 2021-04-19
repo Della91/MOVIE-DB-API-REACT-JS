@@ -4,3 +4,9 @@
     top: 20rem;
     text-align: start;
 }
+
+.list-movie-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 5rem;
+}

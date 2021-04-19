@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import '../../assets/css/header/SearchBox.css'
 import { MyContext } from '../context/Context'
+import ListMoviesSearch from '../main/ListMoviesSearch';
 
 
 function SearchBox() {
@@ -26,6 +27,8 @@ function SearchBox() {
                     value={text}
                     onChange={handleChange} />
                 </form>
+
+                {setText.length > 0 && <ListMoviesSearch/>}
             </div>
     )
 }
