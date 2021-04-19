@@ -9,4 +9,18 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 5rem;
+    text-align: center;
+}
+
+.img-info-movie-search{
+    width: 75%;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.search-movies-info{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    
+    
 }

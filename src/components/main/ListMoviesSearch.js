@@ -4,14 +4,17 @@ import '../../assets/css/main/ListMoviesSearch.css'
 
 function ListMoviesSearch() {
 
-    const { searchMovies,text } = useContext(MyContext); 
+    const { searchMovies } = useContext(MyContext); 
+    const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
     return (
         <div className="list-movie-container">  
-            {searchMovies.length > 0 && searchMovies.map((listMovies) => {
-                return <div key={listMovies.id} className="search-movies">
-                    <img src={listMovies.poster_path} alt="" />
-                   <h1> {listMovies.original_title} </h1>
-                   <p> {listMovies.vote_average} </p>
+            {searchMovies.map((listMovies) => {
+                return <div key={listMovies.id}>
+                    <img className="img-info-movie-search" src={IMAGE_API + listMovies.poster_path} />
+                    <div className="search-movies-info">
+                        <h3> {listMovies.original_title} </h3>
+                        <span> {listMovies.vote_average} </span>
+                    </div>
                 </div>
             })}
         </div>

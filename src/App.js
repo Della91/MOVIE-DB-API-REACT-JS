@@ -12,8 +12,8 @@ function App() {
       <div className="App">
         <SearchBox />
         <div className="main-container">
-          {/* <ListMoviesSearch/> */}
-          <Movie />
+          <ListMoviesSearch/> 
+          <Movie/>
         </div>
       </div>
     </MyProviderApi>

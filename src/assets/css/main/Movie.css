@@ -1,0 +1,17 @@
+.info-movie-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+.img-info-movie{
+    width: 65%;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.info-movie{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+}
