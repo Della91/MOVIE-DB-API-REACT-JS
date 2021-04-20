@@ -7,8 +7,8 @@ function MyProviderApi({children}) {
     const [movies,setMovies] = useState([]);
     const [text,setText] = useState('');
     const [searchMovies,setSearchMovies] = useState([]);
+    const [loading,setLoading] = useState(false);
     var apiKey = process.env.REACT_APP_API;
-    const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=eab759ce491c2669921b293405b7c20f&query=';
     const MOVIE_API = 'https://api.themoviedb.org/3/discover/movie?api_key=eab759ce491c2669921b293405b7c20f&';
 
     useEffect(() => {
@@ -20,17 +20,15 @@ function MyProviderApi({children}) {
         })
     },[]);
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        fetch(SEARCH_API+text)
+    /** function  */
+    function getApiSearchMovies(API){
+        fetch(API)
         .then(data => data.json())
-        .then(data => {
-            setSearchMovies(data.results);
-        })
-    } 
+        .then(data => setSearchMovies(data.results))
+    }
     
     return (
-        <MyContext.Provider value={{movies,handleSubmit,text,setText,searchMovies}}>
+        <MyContext.Provider value={{loading,movies,getApiSearchMovies,setSearchMovies,text,setText,searchMovies}}>
             {children}
         </MyContext.Provider>
     )
