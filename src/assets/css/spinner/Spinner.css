@@ -1,0 +1,9 @@
+.spinner-container{
+    position: fixed;
+    left: 62rem;
+    top: 40rem;
+}
+
+.img-spinner{
+    width: 100%;
+}

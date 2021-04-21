@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Redirect } from 'react-router-dom';
+import React, { useContext } from 'react'
 import '../../assets/css/header/SearchBox.css'
 import { MyContext } from '../context/Context'
-import ListMoviesSearch from '../main/ListMoviesSearch';
 
 function SearchBox() {
     

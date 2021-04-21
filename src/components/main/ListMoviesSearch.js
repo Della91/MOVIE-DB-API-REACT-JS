@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { MyContext } from '../context/Context';
 import '../../assets/css/main/ListMoviesSearch.css'
-import Movie from './Movie';
 import { Redirect } from 'react-router-dom';
 import Spinner from '../loadingSpinner/Spinner';
 
@@ -12,7 +11,7 @@ function ListMoviesSearch() {
 
     useEffect(() => {
         if (!text) setSearchMovies([]);
-    },[])
+    },[text,setSearchMovies])
     if (!text) return <Redirect to="/" />
 
     return (
