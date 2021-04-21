@@ -8,7 +8,6 @@ function MyProviderApi({children}) {
     const [text,setText] = useState('');
     const [searchMovies,setSearchMovies] = useState([]);
     const [loading,setLoading] = useState(false);
-    var apiKey = process.env.REACT_APP_API;
     const MOVIE_API = 'https://api.themoviedb.org/3/discover/movie?api_key=eab759ce491c2669921b293405b7c20f&';
 
     useEffect(() => {
@@ -20,11 +19,13 @@ function MyProviderApi({children}) {
         })
     },[]);
 
-    /** function  */
-    function getApiSearchMovies(API){
-        fetch(API)
-        .then(data => data.json())
-        .then(data => setSearchMovies(data.results))
+    /** function for API search movies  */
+
+    async function getApiSearchMovies(API){
+        const response = await fetch(API)
+        const json = await response.json();
+        setLoading(true)
+        setSearchMovies(json.results);
     }
     
     return (

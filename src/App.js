@@ -10,7 +10,6 @@ function App() {
 
   return (
     <Router>
-      <Switch>
         <MyProviderApi>
           <div className="App">
             <SearchBox/>
@@ -20,7 +19,6 @@ function App() {
             </div>
           </div>
         </MyProviderApi>
-      </Switch>
     </Router>
   );
 }
