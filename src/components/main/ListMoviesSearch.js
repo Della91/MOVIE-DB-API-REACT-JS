@@ -6,18 +6,16 @@ import Spinner from '../loadingSpinner/Spinner';
 
 function ListMoviesSearch() {
 
-    const { searchMovies,setSearchMovies,text,loading,moviesById } = useContext(MyContext); 
+    const { searchMovies,setSearchMovies,text,loading,fetchApiSearchMovies } = useContext(MyContext); 
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
+    const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=eab759ce491c2669921b293405b7c20f&query=';
 
     useEffect(() => {
+        fetchApiSearchMovies(SEARCH_API+text)
         if (!text) setSearchMovies([]);
-    },[text,setSearchMovies])
+    },[fetchApiSearchMovies,text,setSearchMovies])
     
     if (!text) return <Redirect to="/" />
-
-    // if (searchMovies) {
-        
-    // }
 
     return (
         <div className="list-movie-container">  

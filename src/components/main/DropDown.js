@@ -3,18 +3,17 @@ import { Link, Redirect } from 'react-router-dom';
 import '../../assets/css/header/dropdown.css';
 import { MyContext } from '../context/Context';
 
-function DropDown() {
+function DropDown(props) {
 
-    const { genresList,text } = useContext(MyContext);
+    const { genresList,text,fetchApiGenres } = useContext(MyContext);
+    const MOVIES_GENRES_BY_ID = 'https://api.themoviedb.org/3/discover/movie?api_key=eab759ce491c2669921b293405b7c20f&with_genres=';
+    const GENRES_API = 'https://api.themoviedb.org/3/genre/movie/list?api_key=eab759ce491c2669921b293405b7c20f';
+
+    useEffect(() => {
+        fetchApiGenres(GENRES_API);
+    },[])
 
     if (text) return <Redirect to="/search/movie" />
-
-    // function filterIdMovies(){
-    //     let idFilter = moviesById.map((index,i) => index.genre_ids)
-        
-    // }
-    // filterIdMovies()
-    
 
     return (
         <div className="dropdown-container">
@@ -31,8 +30,8 @@ function DropDown() {
                     <Link style={{textDecoration:'underline'}} className="dropdown-item" to="/"> Home </Link>
                     {genresList.map(genresMovie => {
                             return <div key={genresMovie.id} className="genres-list-container">
-                            <Link 
-                            // onClick={filterMovies(genresMovie.id)}
+                            <Link
+                            onClick={() => props.dataFetchGenresById(MOVIES_GENRES_BY_ID,genresMovie.id)} 
                             key={genresMovie.id} 
                             className="dropdown-item" 
                             to={`/${genresMovie.name}`}> 

@@ -5,13 +5,12 @@ import { MyContext } from '../context/Context'
 function SearchBox() {
     
     const { text,setText,getApiSearchMovies } = useContext(MyContext);
-    const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=eab759ce491c2669921b293405b7c20f&query=';
 
 
-    function handleSubmit() {
+    /* function handleSubmit() {
         if (text) getApiSearchMovies(SEARCH_API+text); 
     } 
-    handleSubmit();
+    handleSubmit(); */
 
     function handleChange(e){
         e.preventDefault();
