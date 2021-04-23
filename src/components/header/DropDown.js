@@ -6,8 +6,15 @@ import { MyContext } from '../context/Context';
 function DropDown() {
 
     const { genresList,text } = useContext(MyContext);
-    
+
     if (text) return <Redirect to="/search/movie" />
+
+    // function filterIdMovies(){
+    //     let idFilter = moviesById.map((index,i) => index.genre_ids)
+        
+    // }
+    // filterIdMovies()
+    
 
     return (
         <div className="dropdown-container">
@@ -25,6 +32,7 @@ function DropDown() {
                     {genresList.map(genresMovie => {
                             return <div key={genresMovie.id} className="genres-list-container">
                             <Link 
+                            // onClick={filterMovies(genresMovie.id)}
                             key={genresMovie.id} 
                             className="dropdown-item" 
                             to={`/${genresMovie.name}`}> 

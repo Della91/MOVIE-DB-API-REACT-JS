@@ -15,6 +15,6 @@ html, body{
     width: -webkit-fill-available; 
     background: url('./assets/image/Netflix_logo.svg') center no-repeat;
     background-size: contain;
-    background-position: top;
+    background-position-x: center;
     text-align: center;
 }
