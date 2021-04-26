@@ -1,12 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import Spinner from '../loadingSpinner/Spinner'
 
-function MoviesSearchForGernes(props) {
+function MoviesSearchForGernes({dataLoading,dataMoviesSearchGenres}) {
 
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500';
 
+
     return (
         <div className="info-movie-container">
-            {props.dataMoviesSearchGenres.map((movie) => {
+            {dataMoviesSearchGenres.map((movie) => {
                 return <div key={movie.id}>
                         <img className="img-info-movie" src={IMAGE_API + movie.poster_path} alt=""/> 
                         <div className="info-movie">

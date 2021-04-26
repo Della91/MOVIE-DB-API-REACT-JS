@@ -1,24 +1,23 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../../assets/css/main/Movie.css'
 import { Redirect } from 'react-router-dom';
 import Spinner from '../loadingSpinner/Spinner';
+import { useFetch } from '../../hook/useFetch'
 import { MyContext } from '../context/Context';
+
+const IMAGE_API = 'https://image.tmdb.org/t/p/w500'
+const MOVIE_API = 'https://api.themoviedb.org/3/discover/movie?api_key=eab759ce491c2669921b293405b7c20f&';
 
 function Movie() {
     
-    const { loading,text,movies,fetchApiMovies } = useContext(MyContext);
-    const IMAGE_API = 'https://image.tmdb.org/t/p/w500'
-    const MOVIE_API = 'https://api.themoviedb.org/3/discover/movie?api_key=eab759ce491c2669921b293405b7c20f&';
-
-    useEffect(() => {
-        fetchApiMovies(MOVIE_API);
-    },[])
+    const { text } = useContext(MyContext);
+    const { loading,data } = useFetch(MOVIE_API)
 
     if (text) return <Redirect to="/search/movie" />
 
     return (
         <div className="info-movie-container"> 
-            {loading ? movies.map((movie) => {
+            {loading ? data.map((movie) => {
                 return <div key={movie.id}>
                     <img className="img-info-movie" src={IMAGE_API + movie.poster_path} alt=""/> 
                     <div className="info-movie">
