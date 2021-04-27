@@ -2,7 +2,7 @@
     padding: 10px;
     width: 100%;
     position: relative;
-    top: 10rem;
+    top: 20rem;
 }
 
 .input-search-movie{
@@ -12,4 +12,94 @@
     color: black;
     font-size: 15px;
     font-weight: bold;
+}
+
+@media (min-width:360px)  { 
+    .container-search-box{
+        padding: 10px;
+        width: 100%;
+        position: relative;
+        top: 13rem;
+    }
+
+    .input-search-movie{
+        border-radius: 5px;
+        padding: 2px;
+        width: 40%;
+        color: black;
+        font-size: 13px;
+        font-weight: bold;
+    }
+}
+
+@media (min-width:600px)  {  
+    .container-search-box{
+        padding: 10px;
+        width: 100%;
+        position: relative;
+        top: 13rem;
+    }
+    
+    .input-search-movie{
+        border-radius: 5px;
+        padding: 8px;
+        width: 50%;
+        color: black;
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+
+@media (min-width:801px)  { 
+    .container-search-box{
+        padding: 10px;
+        width: 100%;
+        position: relative;
+        top: 10rem;
+    }
+    
+    .input-search-movie{
+        border-radius: 5px;
+        padding: 7px;
+        width: 30%;
+        color: black;
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+
+@media (min-width:1025px) { 
+    .container-search-box{
+        padding: 10px;
+        width: 100%;
+        position: relative;
+        top: 10rem;
+    }
+    
+    .input-search-movie{
+        border-radius: 5px;
+        padding: 7px;
+        width: 35%;
+        color: black;
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+
+@media (min-width:1281px) {  
+    .container-search-box{
+        padding: 10px;
+        width: 100%;
+        position: relative;
+        top: 10rem;
+    }
+    
+    .input-search-movie{
+        border-radius: 5px;
+        padding: 10px;
+        width: 50%;
+        color: black;
+        font-size: 15px;
+        font-weight: bold;
+    }
 }

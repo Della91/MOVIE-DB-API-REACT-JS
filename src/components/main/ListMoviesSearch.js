@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { MyContext } from '../context/Context';
 import '../../assets/css/main/ListMoviesSearch.css'
 import { Redirect } from 'react-router-dom';
@@ -12,7 +12,7 @@ function ListMoviesSearch() {
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
     const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=eab759ce491c2669921b293405b7c20f&query=';
     const { text } = useContext(MyContext);
-    const { data,setData,loading } = useFetch(SEARCH_API+text);
+    const { data,loading } = useFetch(SEARCH_API+text);
     
     if (!text) return <Redirect to="/" />
 
@@ -27,7 +27,7 @@ function ListMoviesSearch() {
                     <div className="search-movies-info">
                         <h3> {listMovies.title} </h3>
                         <span 
-                        style={{fontSize:'16px',color: listMovies.vote_average >= 6 ? 'green' : 'red'}}> 
+                        style={{color: listMovies.vote_average >= 6 ? 'green' : 'red'}}> 
                         {listMovies.vote_average} 
                         </span>
                     </div>

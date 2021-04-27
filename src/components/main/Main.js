@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Route,Switch } from 'react-router'
-import Movie from './Movie'
+import ListMovies from './ListMovies'
 import ListMoviesSearch from './ListMoviesSearch'
-import MoviesSearchForGernes from './MoviesSearchForGernes'
+import ListMoviesSearchForGernes from './ListMoviesSearchForGernes'
 import DropDownGenres from './DropDownGenres'
+import PagesMovies from './PagesMovies'
 
 function Main() {
 
@@ -34,11 +35,12 @@ function Main() {
                 dataFetchGenresById = {fetchGenresById} 
                 dataFetchApiGenres = {fetchApiGenres} /> 
             </div>
-                <Route exact path="/" component={Movie} />
-                <Route exact path="/search/movie" component={ListMoviesSearch} /> 
+                <Route exact path="/" component={ListMovies} />
+                <Route exact path="/search/movies" component={ListMoviesSearch} /> 
                 <Route path="/movies/genres">
-                    <MoviesSearchForGernes dataMoviesSearchGenres = {moviesSearchGenres} />
+                    <ListMoviesSearchForGernes dataMoviesSearchGenres = {moviesSearchGenres} />
                 </Route>
+                
             </>
         </Switch>
     )

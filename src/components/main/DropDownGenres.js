@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import '../../assets/css/header/dropdown.css';
 import { MyContext } from '../context/Context';

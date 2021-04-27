@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
-import '../../assets/css/main/Movie.css'
+import React, { useContext } from 'react'
+import '../../assets/css/main/ListMovies.css'
 import { Redirect } from 'react-router-dom';
 import Spinner from '../loadingSpinner/Spinner';
 import { useFetch } from '../../hook/useFetch'
@@ -13,7 +13,7 @@ function Movie() {
     const { text } = useContext(MyContext);
     const { loading,data } = useFetch(MOVIE_API)
 
-    if (text) return <Redirect to="/search/movie" />
+    if (text) return <Redirect to="/search/movies" />
 
     return (
         <div className="info-movie-container"> 
@@ -23,7 +23,7 @@ function Movie() {
                     <div className="info-movie">
                         <h3> {movie.title} </h3> 
                         <span 
-                        style={{fontSize:'16px',color: movie.vote_average >= 6 ? 'green' : 'red'}} > 
+                        style={{color: movie.vote_average >= 6 ? 'green' : 'red'}} > 
                         {movie.vote_average} </span>
                     </div>
                 </div>

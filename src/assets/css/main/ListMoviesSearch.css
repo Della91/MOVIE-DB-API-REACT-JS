@@ -7,14 +7,13 @@
 
 .list-movie-container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
     text-align: center;
-    margin-top: 10rem;
+    margin-top: 20rem;
 }
 
 .img-info-movie-search{
-    
-
     border: 1px solid white;
     border-radius: 10px;
 }
@@ -22,6 +21,97 @@
 .search-movies-info{
     display: grid;
     grid-template-rows: 1fr 1fr;
+    margin-top: 10px;
+}
+
+@media (min-width:360px)  { 
+    .main-container{
+        color: white;
+        position: absolute;
+        top: 20rem;
+        text-align: start;
+    }
     
+    .list-movie-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10rem;
+    }
     
+    .img-info-movie-search{
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+    
+    .search-movies-info{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .search-movies-info > span {
+        font-size: 9px;
+    }
+}
+
+@media (min-width:801px)  { 
+    .main-container{
+        color: white;
+        position: absolute;
+        top: 20rem;
+        text-align: start;
+    }
+    
+    .list-movie-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10rem;
+    }
+    
+    .img-info-movie-search{
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+    
+    .search-movies-info{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        margin-top: 10px;
+    }
+
+    .search-movies-info > span {
+        font-size: 14px;
+    }
+}
+
+@media (min-width:1025px) { 
+    .main-container{
+        color: white;
+        position: absolute;
+        top: 20rem;
+        text-align: start;
+    }
+    
+    .list-movie-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-content: center;
+        text-align: center;
+        margin-top: 20rem;
+    }
+    
+    .img-info-movie-search{
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+    
+    .search-movies-info{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        margin-top: 10px;
+    }
 }

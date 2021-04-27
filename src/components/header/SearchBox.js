@@ -5,11 +5,6 @@ import { MyContext } from '../context/Context'
 function SearchBox() {
 
     const { text,handleChange } = useContext(MyContext);
-
-    /* function handleSubmit() {
-        if (text) getApiSearchMovies(SEARCH_API+text); 
-    } 
-    handleSubmit(); */
     
     return(
         <>
