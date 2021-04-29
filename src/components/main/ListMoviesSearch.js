@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
-import { MyContext } from '../context/Context';
-import '../../assets/css/main/ListMoviesSearch.css'
-import { Redirect } from 'react-router-dom';
+import React, { useContext,useEffect,useState } from 'react'
+import { Link, Redirect } from 'react-router-dom';
 import Spinner from '../loadingSpinner/Spinner';
 import { useFetch } from '../../hook/useFetch';
-
-
+import { MyContext } from '../context/Context';
+import PagesMovies from './PagesMovies'
+import { useMyFunctions } from '../../hook/useMyFunctions';
 
 function ListMoviesSearch() {
     
@@ -13,18 +12,21 @@ function ListMoviesSearch() {
     const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=eab759ce491c2669921b293405b7c20f&query=';
     const { text } = useContext(MyContext);
     const { data,loading } = useFetch(SEARCH_API+text);
-    
-    if (!text) return <Redirect to="/" />
+    const { dataSearch,nextPages } = useMyFunctions();
 
     console.log(data)
 
+    if (!text) return <Redirect to="/" />
+
+    /* console.log(totalPages) */
+
     return (
-        <div className="list-movie-container">  
-            {loading ? data.map((listMovies) => {
+        <div className="info-movie-container">  
+            {data.map((listMovies) => {
                 return <div key={listMovies.id}>
-                    <img className="img-info-movie-search" 
+                    <img className="img-info-movie" 
                     src={IMAGE_API + listMovies.poster_path} alt="" />
-                    <div className="search-movies-info">
+                    <div className="info-movie">
                         <h3> {listMovies.title} </h3>
                         <span 
                         style={{color: listMovies.vote_average >= 6 ? 'green' : 'red'}}> 
@@ -32,7 +34,8 @@ function ListMoviesSearch() {
                         </span>
                     </div>
                 </div>
-            }) : <Spinner/>}
+            })}
+            {/* <PagesMovies dataMovies = {data} /> */}
         </div>
     )
 }

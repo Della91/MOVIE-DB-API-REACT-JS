@@ -25,9 +25,9 @@
     .input-search-movie{
         border-radius: 5px;
         padding: 2px;
-        width: 40%;
+        width: 50%;
         color: black;
-        font-size: 13px;
+        font-size: 15px;
         font-weight: bold;
     }
 }
@@ -61,7 +61,7 @@
     .input-search-movie{
         border-radius: 5px;
         padding: 7px;
-        width: 30%;
+        width: 50%;
         color: black;
         font-size: 15px;
         font-weight: bold;
@@ -79,7 +79,7 @@
     .input-search-movie{
         border-radius: 5px;
         padding: 7px;
-        width: 35%;
+        width: 50%;
         color: black;
         font-size: 15px;
         font-weight: bold;

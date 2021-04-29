@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom';
-import '../../assets/css/header/dropdown.css';
+import '../../assets/css/main/dropdownGenres.css';
 import { MyContext } from '../context/Context';
 
 function DropDownGenres({dataFetchApiGenres,dataFetchGenresById,dataGenresListId}) {
 
     const { text } = useContext(MyContext);
-    const MOVIES_GENRES_BY_ID = 'https://api.themoviedb.org/3/discover/movie?api_key=eab759ce491c2669921b293405b7c20f&with_genres=';
-    const GENRES_API = 'https://api.themoviedb.org/3/genre/movie/list?api_key=eab759ce491c2669921b293405b7c20f';
+    const MOVIES_GENRES_BY_ID = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API}&with_genres=`;
+    const GENRES_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API}`;
 
     useEffect(() => {
         dataFetchApiGenres(GENRES_API);

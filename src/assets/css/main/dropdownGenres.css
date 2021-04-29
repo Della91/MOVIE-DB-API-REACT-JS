@@ -90,8 +90,8 @@
 @media (min-width:1281px) {  
     .genres-container{
         position: fixed;
-        right: 30px;
-        top: 30rem;
+        right: 40px;
+        top: 25rem;
         float: right;
         max-width: max-content;
     }

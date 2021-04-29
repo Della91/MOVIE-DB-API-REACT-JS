@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Spinner from '../loadingSpinner/Spinner';
 
 function MoviesSearchForGernes({dataLoading,dataMoviesSearchGenres}) {
 
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500';
 
-
     return (
         <div className="info-movie-container">
-            {dataMoviesSearchGenres.map((movie) => {
+            {dataLoading ? dataMoviesSearchGenres.map((movie) => {
                 return <div key={movie.id}>
                         <img className="img-info-movie" src={IMAGE_API + movie.poster_path} alt=""/> 
                         <div className="info-movie">
@@ -17,7 +17,7 @@ function MoviesSearchForGernes({dataLoading,dataMoviesSearchGenres}) {
                             {movie.vote_average} </span>
                         </div>
                 </div>
-            })}
+            }) : <Spinner/>}
         </div>
     )
 }
