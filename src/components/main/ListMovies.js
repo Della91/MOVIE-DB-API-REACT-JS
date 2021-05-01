@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import '../../assets/css/main/ListMovies.css'
 import { Redirect } from 'react-router-dom';
 import Spinner from '../loadingSpinner/Spinner';
@@ -12,10 +12,6 @@ function Movie() {
     
     const { text } = useContext(MyContext);
     const { loading,data } = useFetch(MOVIE_API)
-
-    /* function nextPage() {
-        fetch(MOVIE_API+`&page${currentPage}`)
-    } */
 
     if (text) return <Redirect to="/search/movies" />
 

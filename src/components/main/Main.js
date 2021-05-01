@@ -1,20 +1,22 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../../assets/css/main/main.css'
 import { Route,Switch } from 'react-router'
 import ListMovies from './ListMovies'
 import ListMoviesSearch from './ListMoviesSearch'
 import ListMoviesSearchForGernes from './ListMoviesSearchForGernes'
 import DropDownGenres from './DropDownGenres'
-import PagesMovies from './PagesMovies'
-import { useMyFunctions } from '../../hook/useMyFunctions'
+import PaginationMovies from './PaginationMovies'
 import { useFetch } from '../../hook/useFetch'
+import { MyContext } from '../context/Context'
 
 function Main() {
 
     const [moviesSearchGenres,setMoviesSearchGenres] = useState([]);
     const [genresListId,setGenresListId] = useState([]); 
     const [loading,setLoading] = useState(false);
-    const { data } = useFetch();
+    const { text } = useContext(MyContext);
+    const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=eab759ce491c2669921b293405b7c20f&query=';
+    const { totalResults } = useFetch(SEARCH_API+text);
 
     async function fetchGenresById(API,genreId){
         const response = await fetch(API+genreId);
@@ -42,7 +44,10 @@ function Main() {
                 dataFetchApiGenres = {fetchApiGenres} /> 
             </div>
                 <Route exact path="/" component={ListMovies} />
-                <Route exact path={`/search/movies`} component={ListMoviesSearch} /> 
+                <Route exact path={`/search/movies/`} >
+                    <ListMoviesSearch/>
+                    {totalResults > 20 && <PaginationMovies/>}
+                </Route> 
                 <Route path="/movies/genres">
                     <ListMoviesSearchForGernes 
                     dataLoading = {loading}

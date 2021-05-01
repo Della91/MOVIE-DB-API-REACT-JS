@@ -1,0 +1,27 @@
+.pages-movies-container{
+    text-align: center;
+    padding: 10px;
+}
+
+.link-pagination:link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.link-pagination:visited {
+    color: white;
+}
+
+.link-pagination:active {
+    pointer-events: none;
+    text-decoration: none;
+}
+
+.link-pagination:focus {
+    padding: 5px;
+    border: 2px solid red;
+    border-radius: 2px;
+}

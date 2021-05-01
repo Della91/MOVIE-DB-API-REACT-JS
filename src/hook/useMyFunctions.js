@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext,useState } from 'react'
 import { MyContext } from '../components/context/Context';
 
 export function useMyFunctions() {
     
-    const { dataSearch,setDataSearch } = useState([]);
+    const [dataSearch,setDataSearch] = useState([]);
     const [totalPages,setTotalPages] = useState(0);
     const [totalResults,setTotalResults] = useState(0);
     const { text } = useContext(MyContext);
