@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import '../../assets/css/main/ListMovies.css'
 import { Redirect } from 'react-router-dom';
 import Spinner from '../loadingSpinner/Spinner';
-import { useFetch } from '../../hook/useFetch';
+import { useFetch } from '../../hooks/useFetch';
 import { MyContext } from '../context/Context';
 
 const IMAGE_API = 'https://image.tmdb.org/t/p/w500'

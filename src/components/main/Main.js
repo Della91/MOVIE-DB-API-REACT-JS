@@ -6,7 +6,7 @@ import ListMoviesSearch from './ListMoviesSearch'
 import ListMoviesSearchForGernes from './ListMoviesSearchForGernes'
 import DropDownGenres from './DropDownGenres'
 import PaginationMovies from './PaginationMovies'
-import { useFetch } from '../../hook/useFetch'
+import { useFetch } from '../../hooks/useFetch'
 import { MyContext } from '../context/Context'
 
 function Main() {
@@ -15,7 +15,7 @@ function Main() {
     const [genresListId,setGenresListId] = useState([]); 
     const [loading,setLoading] = useState(false);
     const { text } = useContext(MyContext);
-    const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=eab759ce491c2669921b293405b7c20f&query=';
+    const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API}&query=`;
     const { totalResults } = useFetch(SEARCH_API+text);
 
     async function fetchGenresById(API,genreId){

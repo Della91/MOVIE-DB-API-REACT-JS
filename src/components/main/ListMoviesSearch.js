@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { Redirect } from 'react-router-dom';
 import Spinner from '../loadingSpinner/Spinner';
-import { useFetch } from '../../hook/useFetch';
+import { useFetch } from '../../hooks/useFetch';
 import { MyContext } from '../context/Context';
 
 function ListMoviesSearch() {
     
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
-    const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=eab759ce491c2669921b293405b7c20f&query=';
+    const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API}&query=`;
     const { text } = useContext(MyContext);
     const { data,loading } = useFetch(SEARCH_API+text);
 
