@@ -1,9 +1,14 @@
 import React, { useContext } from 'react'
+import { Redirect } from 'react-router-dom';
+import { MyContext } from '../context/Context';
 import Spinner from '../loadingSpinner/Spinner';
 
 function MoviesSearchForGernes({dataLoading,dataMoviesSearchGenres}) {
 
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500';
+    const { text } = useContext(MyContext)
+    
+    if(text) return <Redirect to="/search/movies" /> 
 
     return (
         <div className="info-movie-container">

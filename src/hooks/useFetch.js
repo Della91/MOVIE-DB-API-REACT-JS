@@ -9,7 +9,6 @@ export function useFetch(url) {
     const [totalResults,setTotalResults] = useState(0);
 
     useEffect(() => {
-        if(!url) return;
         async function callApi() {
             setLoading(true);
             const response = await fetch(url);

@@ -3,8 +3,9 @@ import { Redirect } from 'react-router-dom';
 import Spinner from '../loadingSpinner/Spinner';
 import { useFetch } from '../../hooks/useFetch';
 import { MyContext } from '../context/Context';
+import gifLoading from '../../assets/image/gif/758X.gif'
 
-function ListMoviesSearch() {
+function ListMoviesSearch({dataResults}) {
     
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
     const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API}&query=`;
@@ -18,7 +19,7 @@ function ListMoviesSearch() {
     return (
         <div className="info-movie-container">  
             {loading ? data.map((listMovies) => {
-                return <div key={listMovies.id}>
+                return  <div key={listMovies.id}>
                     <img className="img-info-movie" 
                     src={IMAGE_API + listMovies.poster_path} alt="" />
                     <div className="info-movie">
@@ -29,7 +30,7 @@ function ListMoviesSearch() {
                         </span>
                     </div>
                 </div>
-            }) : <Spinner/>}
+            }) : <Spinner imgGif={gifLoading} />}
         </div>
     )
 }
