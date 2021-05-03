@@ -8,6 +8,7 @@ import { Redirect } from 'react-router';
 
 const IMAGE_API = 'https://image.tmdb.org/t/p/w500'
 const MOVIE_API = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API}`;
+console.log(process.env)
 
 function Movie() {
     
