@@ -8,7 +8,8 @@ import gifLoading from '../../assets/image/gif/758X.gif'
 function ListMoviesSearch({dataResults}) {
     
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
-    const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API}&query=`;
+    const { REACT_APP_KEY } = process.env;
+    const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_KEY}&query=`;
     const { text } = useContext(MyContext);
     const { data,loading } = useFetch(SEARCH_API+text);
 

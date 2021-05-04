@@ -6,8 +6,9 @@ import { MyContext } from '../context/Context';
 function DropDownGenres({dataFetchApiGenres,dataFetchGenresById,dataGenresListId}) {
 
     const { text } = useContext(MyContext);
-    const MOVIES_GENRES_BY_ID = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API}&with_genres=`;
-    const GENRES_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API}`;
+    const { REACT_APP_KEY } = process.env;
+    const MOVIES_GENRES_BY_ID = `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_KEY}&with_genres=`;
+    const GENRES_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${REACT_APP_KEY}`;
 
     useEffect(() => {
         dataFetchApiGenres(GENRES_API);

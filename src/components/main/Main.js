@@ -18,10 +18,11 @@ function Main() {
     const [genresListId,setGenresListId] = useState([]); 
     const [loading,setLoading] = useState(false);
     const { text } = useContext(MyContext);
-    const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API}&query=`;
+    const { REACT_APP_KEY } = process.env;
+    const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_KEY}&query=`;
     const { totalResults,data } = useFetch(SEARCH_API+text);
-    const noTextError = []; 
-    noTextError.push(<> <Spinner imgGif={faceGif} /> </> )
+    const textError = []; 
+    textError.push(<> <Spinner imgGif={faceGif} /> </> )
     
     async function fetchGenresById(API,genreId){
         const response = await fetch(API+genreId);
@@ -52,7 +53,7 @@ function Main() {
                 <Route exact path="/" component={ListMovies} />
                 <Route exact path={`/search/movies/`} >
                     <ListMoviesSearch dataResults={data} />
-                    {totalResults === 0 && noTextError}
+                    {totalResults === 0 && textError}
                     {totalResults > 20 && <PaginationMovies/>}
                 </Route> 
                 <Route path="/movies/genres">

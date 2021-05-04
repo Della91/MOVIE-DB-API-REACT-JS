@@ -7,7 +7,8 @@ import { MyContext } from '../context/Context';
 import { Redirect } from 'react-router';
 
 const IMAGE_API = 'https://image.tmdb.org/t/p/w500'
-const MOVIE_API = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API}`;
+const { REACT_APP_KEY } = process.env;
+const MOVIE_API = `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_KEY}`;
 console.log(process.env)
 
 function Movie() {
