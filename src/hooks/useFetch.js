@@ -25,6 +25,7 @@ export function useFetch(url) {
     return { 
         data,
         loading,
+        setLoading,
         setData,
         totalPages,
         totalResults,

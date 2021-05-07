@@ -31,7 +31,7 @@ img{
 @media (min-width:360px)  { 
     .info-movie-container{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         text-align: center;
         justify-content: center;
         padding: 10px;

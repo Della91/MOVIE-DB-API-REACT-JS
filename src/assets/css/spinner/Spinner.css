@@ -1,9 +1,12 @@
 .spinner-container{
-    position: relative;
+    display: flex;
+    justify-content: center;
     text-align: center;
-    left: 90%;
+    padding: 20px;
 }
 
 .img-spinner{
-    width: 50%;
+    width: 100%;
+    position: relative;
+    left: 75rem;
 }

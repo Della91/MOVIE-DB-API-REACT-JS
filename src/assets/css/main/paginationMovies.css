@@ -1,14 +1,22 @@
 .pages-movies-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     text-align: center;
     padding: 10px;
+}
+
+.active-link{
+    background-color: darkred;
 }
 
 .link-pagination:link {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    margin-right: 20px;
     font-size: 20px;
+    margin-right: 20px;
+    padding: 5px;
 }
 
 .link-pagination:visited {
@@ -16,12 +24,5 @@
 }
 
 .link-pagination:active {
-    pointer-events: none;
     text-decoration: none;
 }
-
-/* .link-pagination:focus {
-    padding: 5px;
-    border: 2px solid red;
-    border-radius: 2px;
-} */

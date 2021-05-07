@@ -8,17 +8,20 @@ export function usePagination() {
     const [totalResults,setTotalResults] = useState(0);
     const { text } = useContext(MyContext);
 
-        async function getPages(url,pageNumber) {
+        function getPages(url,pageNumber) {
+            setTimeout(async () => {
             const response = await fetch(url+text+`&page=${pageNumber}`)
             const json = await response.json();
-            setDataResults(json.results);
-            setTotalPages(json.total_pages);
-            setTotalResults(json.total_results);
+                setDataResults(json.results);
+                setTotalPages(json.total_pages);
+                setTotalResults(json.total_results);
+            },1500)
         }
     
     return {
         getPages,
         dataResults,
         totalPages,
-        totalResults}
+        totalResults
+    }
 }
