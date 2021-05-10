@@ -1,7 +1,8 @@
 .pages-movies-container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    right: 0%;
     text-align: center;
     padding: 10px;
 }
@@ -15,8 +16,8 @@
     color: white;
     font-weight: bold;
     font-size: 20px;
-    margin-right: 20px;
     padding: 5px;
+    text-align: center;
 }
 
 .link-pagination:visited {

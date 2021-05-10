@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext,useState } from 'react'
 import '../../assets/css/spinner/Spinner.css'
 import '../../assets/css/main/main.css'
-import { Route,Switch, useParams } from 'react-router'
+import { Route,Switch } from 'react-router'
 import ListMovies from './ListMovies'
-import ListMoviesSearch from './ListMoviesSearch'
 import ListMoviesSearchForGernes from './ListMoviesSearchForGernes'
 import DropDownGenres from './DropDownGenres'
 import PaginationMovies from './PaginationMovies'
@@ -20,9 +19,9 @@ function Main() {
     const { text } = useContext(MyContext);
     const { REACT_APP_KEY } = process.env;
     const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_KEY}&query=`;
-    const { totalResults,data } = useFetch(SEARCH_API+text);
+    const { totalResults } = useFetch(SEARCH_API+text);
     const textError = []; 
-    
+
     textError.push(<> <Spinner imgGif={faceGif} /> </> ) // if don't exists movies
     
     async function fetchGenresById(API,genreId){
@@ -51,16 +50,13 @@ function Main() {
                 dataFetchApiGenres = {fetchApiGenres} /> 
             </div>
                 <Route exact path="/" component={ListMovies} />
-                <Route exact path="/search/movies/1" >
-                    <ListMoviesSearch />
-                    {totalResults === 0 && textError}
-                </Route> 
-                {totalResults > 20 && <PaginationMovies/>}
                 <Route path="/movies/genres">
                     <ListMoviesSearchForGernes 
                     dataLoading = {loading}
                     dataMoviesSearchGenres = {moviesSearchGenres} />
                 </Route>
+                <div className="error-container"> {totalResults === 0 && textError} </div>
+                {totalResults > 20 && <PaginationMovies dataLoading={loading}/>}
             </>
         </Switch>
     )

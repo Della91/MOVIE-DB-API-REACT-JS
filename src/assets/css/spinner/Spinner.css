@@ -6,7 +6,11 @@
 }
 
 .img-spinner{
-    width: 100%;
-    position: relative;
-    left: 75rem;
+    width: 30%;
+}
+
+.error-container{
+    position: fixed;
+    left: 0%;
+    right: 0%;
 }
