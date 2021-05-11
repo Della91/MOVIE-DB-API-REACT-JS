@@ -2,13 +2,14 @@ import React, { useContext } from 'react'
 import { Redirect } from 'react-router-dom';
 import { MyContext } from '../context/Context';
 import Spinner from '../loadingSpinner/Spinner';
+import faceGif from '../../assets/image/gif/face.gif'
 
 function MoviesSearchForGernes({dataLoading,dataMoviesSearchGenres}) {
 
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500';
     const { text } = useContext(MyContext)
     
-    if(text) return <Redirect to="/search/movies" /> 
+    if(text) return <Redirect to="/search/movies/1" /> 
 
     return (
         <div className="info-movie-container">
@@ -22,7 +23,7 @@ function MoviesSearchForGernes({dataLoading,dataMoviesSearchGenres}) {
                             {movie.vote_average} </span>
                         </div>
                 </div>
-            }) : <Spinner/>}
+            }) : <Spinner imgGif={faceGif} />}
         </div>
     )
 }

@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import '../../assets/css/main/dropdownGenres.css';
+import { useFetch } from '../../hooks/useFetch';
 import { MyContext } from '../context/Context';
 
 function DropDownGenres({dataFetchApiGenres,dataFetchGenresById,dataGenresListId}) {
@@ -9,10 +10,7 @@ function DropDownGenres({dataFetchApiGenres,dataFetchGenresById,dataGenresListId
     const { REACT_APP_KEY } = process.env;
     const MOVIES_GENRES_BY_ID = `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_KEY}&with_genres=`;
     const GENRES_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${REACT_APP_KEY}`;
-
-    useEffect(() => {
-        dataFetchApiGenres(GENRES_API);
-    },[])
+    const { genresList } = useFetch(GENRES_API);
 
     if (text) return <Redirect to="/search/movie" />
 
@@ -29,7 +27,7 @@ function DropDownGenres({dataFetchApiGenres,dataFetchGenresById,dataGenresListId
                 </button>
                 <div className="dropdown-menu">
                     <Link style={{textDecoration:'underline'}} className="dropdown-item" to="/"> Home </Link>
-                    {dataGenresListId.map(genresMovie => {
+                    {genresList.map(genresMovie => {
                             return <div key={genresMovie.id} className="genres-list-container">
                             <Link
                             onClick={() => dataFetchGenresById(MOVIES_GENRES_BY_ID,genresMovie.id)} 

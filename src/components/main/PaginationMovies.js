@@ -4,10 +4,8 @@ import { usePagination } from '../../hooks/usePagination';
 import '../../assets/css/main/paginationMovies.css'
 import { MyContext } from '../context/Context';
 import '../../assets/css/main/paginationMovies.css'
-import Spinner from '../loadingSpinner/Spinner';
-import gifLoading from '../../assets/image/gif/758X.gif'
 
-function PaginationMovies({dataLoading,dataPageLink}) {
+function PaginationMovies({dataLoading}) {
 
     const { REACT_APP_KEY } = process.env;
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
@@ -33,7 +31,7 @@ function PaginationMovies({dataLoading,dataPageLink}) {
 
     return (
         <div className="info-movie-container">  
-            {dataLoading ? dataResults.map((listMovies) => {
+            {dataResults.map((listMovies) => {
                 return  <div key={listMovies.id}>
                     <img className="img-info-movie" 
                     src={IMAGE_API + listMovies.poster_path} alt="" />
@@ -45,7 +43,7 @@ function PaginationMovies({dataLoading,dataPageLink}) {
                         </span>
                     </div>
                 </div>
-            }) : <Spinner imgGif={gifLoading} />}
+            })}
             <div className="pages-movies-container"> 
                 {pageLink}
             </div>
