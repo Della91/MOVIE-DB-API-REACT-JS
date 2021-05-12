@@ -1,7 +1,7 @@
 import React, { useContext,useState } from 'react'
 import '../../assets/css/spinner/Spinner.css'
 import '../../assets/css/main/main.css'
-import { Route,Switch } from 'react-router'
+import { Redirect, Route,Switch } from 'react-router'
 import ListMovies from './ListMovies'
 import ListMoviesSearchForGernes from './ListMoviesSearchForGernes'
 import DropDownGenres from './DropDownGenres'
@@ -45,7 +45,7 @@ function Main() {
                 <Route path="/search/movies/:1">
                     <PaginationMovies dataLoading={loading}/>
                 </Route>
-                <div className="error-container"> {totalResults === 0 && <> <Spinner imgGif={faceGif} /> </>} </div>
+                {totalResults === 0 && <div className="error-container"> <> <Spinner imgGif={faceGif} /> </> </div> }
             </>
         </Switch>
     )
