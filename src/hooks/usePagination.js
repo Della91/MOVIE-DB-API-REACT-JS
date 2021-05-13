@@ -1,22 +1,21 @@
-import React, { useContext,useState } from 'react'
-import { MyContext } from '../components/context/Context';
+import React, { useState } from 'react'
 
-export function usePagination() {
+export function usePagination({text}) {
     
     const [dataResults,setDataResults] = useState([]);
     const [loading,setLoading] = useState(false);
     const [totalPages,setTotalPages] = useState(0);
     const [totalResults,setTotalResults] = useState(0);
-    const { text } = useContext(MyContext);
+    /* const { text } = useContext(MyContext); */
 
-        function getPages(url,pageNumber) {
+        function getPages(url,text,pageNumber) {
             setTimeout(async () => {
                 const response = await fetch(url+text+`&page=${pageNumber}`)
                 const json = await response.json();
                 setDataResults(json.results);
                 setTotalPages(json.total_pages);
                 setTotalResults(json.total_results);
-            },1500)
+            },1000)
         }
     
     return {

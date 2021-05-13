@@ -1,18 +1,16 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import '../../assets/css/main/ListMovies.css'
 import gifLoading from '../../assets/image/gif/758X.gif'
 import Spinner from '../loadingSpinner/Spinner';
 import { useFetch } from '../../hooks/useFetch';
-import { MyContext } from '../context/Context';
 import { Redirect } from 'react-router';
 
 const IMAGE_API = 'https://image.tmdb.org/t/p/w500'
 const { REACT_APP_KEY } = process.env;
 const MOVIE_API = `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_KEY}`;
 
-function Movie() {
+function Movie({text}) {
     
-    const { text } = useContext(MyContext);
     const { loading,setLoading,data } = useFetch(MOVIE_API)
 
     if(text) return <Redirect to="/search/movies/1" />

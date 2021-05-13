@@ -17,7 +17,7 @@ export function useFetch(url) {
             setTotalPages(json.total_pages);
             setTotalResults(json.total_results);
             setGenresList(json.genres);
-            console.log(json)
+            /* console.log(json) */
         }
         callApi();
     },[url])

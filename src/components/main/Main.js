@@ -1,21 +1,19 @@
-import React, { useContext,useState } from 'react'
+import React, { useState } from 'react'
 import '../../assets/css/spinner/Spinner.css'
 import '../../assets/css/main/main.css'
-import { Redirect, Route,Switch } from 'react-router'
+import { Route,Switch } from 'react-router'
 import ListMovies from './ListMovies'
 import ListMoviesSearchForGernes from './ListMoviesSearchForGernes'
 import DropDownGenres from './DropDownGenres'
 import PaginationMovies from './PaginationMovies'
 import { useFetch } from '../../hooks/useFetch'
-import { MyContext } from '../context/Context'
 import faceGif from '../../assets/image/gif/face.gif'
 import Spinner from '../loadingSpinner/Spinner'
 
-function Main() {
+function Main({text}) {
 
     const [moviesSearchGenres,setMoviesSearchGenres] = useState([]);
     const [loading,setLoading] = useState(false);
-    const { text } = useContext(MyContext);
     const { REACT_APP_KEY } = process.env;
     const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_KEY}&query=`;
     const { totalResults } = useFetch(SEARCH_API+text);
@@ -34,16 +32,20 @@ function Main() {
         <Switch>
             <>
             <div className="genres-container"> 
-                <DropDownGenres dataFetchGenresById = {fetchGenresById} /> 
+                <DropDownGenres text={text} 
+                dataFetchGenresById = {fetchGenresById} /> 
             </div>
-                <Route exact path="/" component={ListMovies} />
+                <Route exact path="/">
+                    <ListMovies text={text} />
+                </Route>
                 <Route path="/movies/genres">
                     <ListMoviesSearchForGernes 
+                    text={text}
                     dataLoading = {loading}
                     dataMoviesSearchGenres = {moviesSearchGenres} />
                 </Route>
                 <Route path="/search/movies/:1">
-                    <PaginationMovies dataLoading={loading}/>
+                    <PaginationMovies text={text} />
                 </Route>
                 {totalResults === 0 && <div className="error-container"> <> <Spinner imgGif={faceGif} /> </> </div> }
             </>

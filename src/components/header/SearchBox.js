@@ -1,10 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import '../../assets/css/header/SearchBox.css'
-import { MyContext } from '../context/Context'
 
-function SearchBox() {
+function SearchBox({text,handleChange}) {
 
-    const { text,handleChange } = useContext(MyContext);
+    /* const { text,handleChange } = useContext(MyContext); */
     
     return(
         <>
