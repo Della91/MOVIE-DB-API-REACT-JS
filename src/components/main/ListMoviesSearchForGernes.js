@@ -1,17 +1,17 @@
 import React, { useContext } from 'react'
 import { Redirect } from 'react-router-dom';
-import Spinner from '../loadingSpinner/Spinner';
-import faceGif from '../../assets/image/gif/face.gif'
+import { MyContext } from '../context/Context';
 
-function MoviesSearchForGernes({dataLoading,dataMoviesSearchGenres,text}) {
+function MoviesSearchForGernes({dataMoviesSearchGenres}) {
 
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500';
+    const { text } = useContext(MyContext);
     
     if(text) return <Redirect to="/search/movies/1" /> 
 
     return (
         <div className="info-movie-container">
-            {dataLoading ? dataMoviesSearchGenres.map((movie) => {
+            {dataMoviesSearchGenres.map((movie) => {
                 return <div key={movie.id}>
                         <img className="img-info-movie" src={IMAGE_API + movie.poster_path} alt=""/> 
                         <div className="info-movie">
@@ -21,7 +21,7 @@ function MoviesSearchForGernes({dataLoading,dataMoviesSearchGenres,text}) {
                             {movie.vote_average} </span>
                         </div>
                 </div>
-            }) : <Spinner imgGif={faceGif} />}
+            })}
         </div>
     )
 }

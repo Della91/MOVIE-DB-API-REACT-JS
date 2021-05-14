@@ -1,28 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import SearchBox from './components/header/SearchBox';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Main from './components/main/Main';
+import MyProvider from './components/context/MyProvider';
 
 function App() {
 
-  const [text,setText] = useState('');    
-    
-    function handleChange(e){
-        e.preventDefault();
-        setText(e.target.value)
-    }
-
   return (
     <Router>
-      {/* <MyProvider> */}
+      <MyProvider>
         <div className="App">
-          <SearchBox text={text} handleChange={handleChange} />
+          <SearchBox />
           <div className="main-container">
-            <Main text={text} />
+            <Main />
           </div>
         </div>
-      {/* </MyProvider> */}
+      </MyProvider>
     </Router>
   );
 }

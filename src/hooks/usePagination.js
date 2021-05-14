@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export function usePagination({text}) {
+export function usePagination() {
     
     const [dataResults,setDataResults] = useState([]);
     const [loading,setLoading] = useState(false);

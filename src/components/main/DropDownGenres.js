@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import '../../assets/css/main/dropdownGenres.css';
 import { useFetch } from '../../hooks/useFetch';
+import { MyContext } from '../context/Context';
 
-function DropDownGenres({text,dataFetchGenresById}) {
+function DropDownGenres({dataFetchGenresById}) {
 
-    /* const { text } = useContext(MyContext); */
     const { REACT_APP_KEY } = process.env;
+    const { text } = useContext(MyContext);
     const MOVIES_GENRES_BY_ID = `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_KEY}&with_genres=`;
     const GENRES_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${REACT_APP_KEY}`;
     const { genresList } = useFetch(GENRES_API);
-
-    if (text) return <Redirect to="/search/movie" />
+    
+    if(text) return <Redirect to="/search/movies/1" />
 
     return (
         <div className="dropdown-container">

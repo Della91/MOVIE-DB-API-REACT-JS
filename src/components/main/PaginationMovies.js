@@ -1,22 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavLink, Redirect } from 'react-router-dom';
 import { usePagination } from '../../hooks/usePagination';
 import '../../assets/css/main/paginationMovies.css'
-/* import { MyContext } from '../context/Context'; */
 import '../../assets/css/main/paginationMovies.css'
+import { MyContext } from '../context/Context';
 
-function PaginationMovies({text}) {
+function PaginationMovies({redirectPath}) {
 
     const { REACT_APP_KEY } = process.env;
+    const { text } = useContext(MyContext);
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
     const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_KEY}&query=`;
-    /* const { text } = useContext(MyContext); */
-    const { getPages,totalPages,dataResults,setLoading } = usePagination(text);
+    const { getPages,totalPages,dataResults,setLoading } = usePagination();
     let pageLink = [];
 
     useEffect(() => {
         getPages(SEARCH_API,text)
-        /* return () => getPages(SEARCH_API,text) */
     },[text])
 
     if(!text) return <Redirect to="/" />
