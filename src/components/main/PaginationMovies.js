@@ -5,13 +5,13 @@ import '../../assets/css/main/paginationMovies.css'
 import '../../assets/css/main/paginationMovies.css'
 import { MyContext } from '../context/Context';
 
-function PaginationMovies({redirectPath}) {
+function PaginationMovies() {
 
     const { REACT_APP_KEY } = process.env;
     const { text } = useContext(MyContext);
     const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
     const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_KEY}&query=`;
-    const { getPages,totalPages,dataResults,setLoading } = usePagination();
+    const { getPages,totalPages,dataResultsPagination,setLoading } = usePagination();
     let pageLink = [];
 
     useEffect(() => {
@@ -32,7 +32,7 @@ function PaginationMovies({redirectPath}) {
 
     return (
         <div className="info-movie-container">  
-            {dataResults.map((listMovies) => {
+            {dataResultsPagination.map((listMovies) => {
                 return  <div key={listMovies.id}>
                     <img className="img-info-movie" 
                     src={IMAGE_API + listMovies.poster_path} alt=""
